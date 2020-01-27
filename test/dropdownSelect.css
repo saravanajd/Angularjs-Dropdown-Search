@@ -1,0 +1,54 @@
+.ng-dropdown-container {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+.ng-dropdown-container.show .ng-dropdown-options {
+    display: inline-block;
+}
+
+.ng-dropdown-text {
+    color: #4e5b6a;
+    padding: 0.2rem 1rem;
+    border: 1px solid #dee3ea;
+    border-radius: 0.25rem;
+    width: 100%;
+    display: inline-block;
+    line-height: 1.5rem;
+    cursor: default;
+    min-height: 2rem;
+}
+
+.ng-dropdown-text::after {
+    position: absolute;
+    content: ' ';
+    border: 5px solid transparent;
+    border-top-color: #000000;
+    top: 0.8rem;
+    right: 1rem;
+    transition: rotate 0.3s ease;
+}
+
+.ng-dropdown-options {
+    border: 1px solid #dee3ea;
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin-top: calc(1.5rem + 0.5rem);
+    display: none;
+}
+
+
+
+.ng-dropdown-item {
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+}
+
+.ng-dropdown-item:hover {
+    background: #eee;
+}
