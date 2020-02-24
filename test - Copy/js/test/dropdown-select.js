@@ -15,10 +15,9 @@
           '    </div>',
           '    <ul class="ng-dropdown-options">',
           '        <li class="ng-dropdown-item">',
-          '            <input type="text" ng-model="searchText" style="padding: 0.2rem 1rem;width: 100%">',
+          '            <input type="text" style="padding: 0.2rem 1rem;width: 100%">',
           '        </li>',
-          '        <li class="ng-dropdown-item" ',
-          '        ng-repeat="item in ddData | filter:ddSearchFilter" data-item="{{item}}" ng-click="SelectItem($event,item)">',
+          '        <li class="ng-dropdown-item" ng-repeat="item in ddData" data-item="{{item}}" ng-click="SelectItem($event,item)">',
           '            {{item[ddLabel]}}',
           '        </li>',
           '    </ul>',
@@ -32,7 +31,6 @@
     function() {
       return {
         restrict: 'E',
-        // require: "^ngModel",
         replace: true,
         scope: {
           ddModel: '=',
@@ -43,25 +41,18 @@
         controller: [
           '$scope',
           '$element',
-          '$document',
-          function($scope, $element, $document) {
-            console.log('$element', $element, '$document', $document);
+          function($scope, $element) {
+            console.log(
+              '$scope.ddModel',
+              $scope.ddModel,
+              '$scope.ddData',
+              $scope.ddData
+            );
 
-            $scope.searchText = '';
             $scope.labelText = '-- select --';
             if ($scope.ddModel && $scope.ddModel[$scope.ddLabel]) {
               $scope.labelText = $scope.ddModel[$scope.ddLabel];
             }
-
-            $scope.ddSearchFilter = function(item) {
-              return (
-                !$scope.searchText ||
-                (item[$scope.ddLabel] &&
-                  item[$scope.ddLabel]
-                    .toLowerCase()
-                    .indexOf($scope.searchText.toLowerCase()) > -1)
-              );
-            };
 
             $scope.SelectItem = function($event, item) {
               $scope.ddModel = item;
@@ -74,31 +65,29 @@
               );
 
               $scope.labelText = $scope.ddModel[$scope.ddLabel];
-              $element.removeClass('show');
             };
 
             $element.on('click', function($event) {
-              const ele = angular.element($event.target);
+              const $body = angular.element('body');
 
-              const isTarget = ele.closest('.ng-dropdown-text').length === 1;
+              $event.stopPropagation();
 
-              if (isTarget) {
-                $element.toggleClass('show');
-              }
+              // angular.forEach(_dropdowns, function(el) {
+              //   if (el !== ddEl) {
+              //     el.removeClass('show');
+              //   }
+              // });
+              // ddEl.toggleClass('show');
+
+              $element.toggleClass('show');
             });
 
-            $document.on('mouseup', function($event) {
-              if (!$event || !$event.target) {
-                return;
-              }
+            // $element.bind('click', function($event) {
+            //   $event.stopPropagation();
 
-              const isDropdownContainer =
-                $element.has($event.target).length === 1;
-
-              if (!isDropdownContainer) {
-                $element.removeClass('show');
-              }
-            });
+            //   $element.addClass('show');
+            //   //              $element.toggleClass('show');
+            // });
           }
         ],
         // templateUrl: 'dropdownSelect.html' // 'template/dropdownSelect.html'
