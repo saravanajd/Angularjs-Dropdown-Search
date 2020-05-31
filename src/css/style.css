@@ -48,8 +48,8 @@
 }
 
 /* ===============
-  1. global styles
-  ================ */
+    1. global styles
+    ================ */
 @-ms-viewport {
   width: device-width;
 }
@@ -90,8 +90,8 @@ body {
 }
 
 /* ===============
-  2. typography
-  ================ */
+    2. typography
+    ================ */
 h1,
 h2,
 h3 {
@@ -145,8 +145,8 @@ section {
 }
 
 /* ===============
-  3. layout
-  ================ */
+    3. layout
+    ================ */
 /* 3.1 header */
 .page-header {
   background: var(--header-bg);
@@ -213,15 +213,15 @@ header {
   margin-left: auto;
 }
 
-.util-nav a {
+.util-nav a.social {
   color: var(--header-fg);
   fill: var(--header-fg);
   width: 32px;
   height: 32px;
 }
 
-.util-nav a:hover,
-.util-nav a:focus {
+.util-nav a.social:hover,
+.util-nav a.social:focus {
   color: var(--header-fg);
   fill: var(--header-fg);
   filter: contrast(30%);
@@ -246,7 +246,7 @@ header {
   width: 100%;
   min-height: 1px;
   /* padding-right: 15px;
-  padding-left: 15px; */
+    padding-left: 15px; */
   flex: 0 0 100%;
   max-width: 100%;
 }
@@ -429,8 +429,8 @@ main {
 }
 
 /* ===============
-  4. components
-  ================ */
+    4. components
+    ================ */
 /* 4.1 scrollbar */
 
 ::-webkit-scrollbar-track {
@@ -441,6 +441,7 @@ main {
 
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
   background-color: #fafafa;
 }
 
@@ -516,15 +517,20 @@ textarea.form-control {
 /* 4.4 Button */
 .btn {
   display: inline-block;
-  background: #eee;
-  border: 1px solid #ccc;
+  background-color: #eff3f6;
+  background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+  border: 1px solid rgba(27, 31, 35, .2);
+  border-radius: .25em;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-weight: 600;
 }
 
 .btn:hover {
-  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+  background-color: #e6ebf1;
+  background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+  background-position: -.5em;
 }
 
 /* 4.5 Table */

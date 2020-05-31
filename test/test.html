@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Select</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <style>
+        html {
+            min-width: 100%;
+            min-height: 100vh;
+            height: 100vh;
+        }
+
+        body {
+            min-width: 150px;
+            position: relative;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div ng-app='DropdownSelectApp' ng-controller='ctrlTest'>
+        <div style="width: 350px;display: inline-block;margin: 0px auto;margin-top: 150px;">
+            <dropdown-select dd-model='Brand' dd-data='brandList' dd-label='Name' dd-change="OnBrandSelected()">
+            </dropdown-select>
+        </div>
+        <div style="width: 350px;display: inline-block;margin: 0px auto;margin-top: 150px;">
+            <dropdown-select dd-model='Product' dd-data='productList' dd-label='Name'>
+            </dropdown-select>
+        </div>
+
+        <div style="margin-top: 100px;">
+            <p>
+                Brand : {{Brand}}
+            </p>
+            <p>
+                Product : {{Product}}
+            </p>
+        </div>
+    </div>
+
+    <!-- <script src="/src/js/jquery-3.4.1.js"></script> -->
+    <script src="/src/js/angular.js"></script>
+
+    <link rel="stylesheet" href="/dist/dropdown-select.css">
+    <script src="/dist/dropdown-select.js"></script>
+    <script src="/src/app.js"></script>
+</body>
+</body>
+
+</html>
