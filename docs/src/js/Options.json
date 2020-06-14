@@ -1,0 +1,25 @@
+[{
+        "Property": "dd-data",
+        "Default": "[]",
+        "Required": true,
+        "Description": "array containing items to be displayed on the list."
+    },
+    {
+        "Property": "dd-model",
+        "Default": "null",
+        "Required": true,
+        "Description": "use to get/set current input value."
+    },
+    {
+        "Property": "dd-label",
+        "Default": "null",
+        "Required": false,
+        "Description": "The name of the property that contains the text for the item."
+    },
+    {
+        "Property": "dd-change",
+        "Default": "null",
+        "Required": false,
+        "Description": "Fired when the selection changes."
+    }
+]
